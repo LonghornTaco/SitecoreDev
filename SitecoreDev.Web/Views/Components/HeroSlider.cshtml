@@ -29,7 +29,7 @@
                {
                   var mediaItem = (MediaItem)image;
                   <div class="item @(i == 1 ? "active" : "")">
-                     <img src="@MediaManager.GetMediaUrl(mediaItem)" style="width:1920px;" />
+                     <img src="@MediaManager.GetMediaUrl(mediaItem)" style="width:1920px;" alt="@mediaItem.Alt" />
                   </div>
                   i++;
                }
