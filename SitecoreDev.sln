@@ -21,6 +21,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SitecoreExtensions", "Sitec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDev.Foundation.SitecoreExtensions", "Foundation\SitecoreExtensions\SitecoreDev.Foundation.SitecoreExtensions\SitecoreDev.Foundation.SitecoreExtensions.csproj", "{667602FC-2957-486A-B1E8-70355CD58EB8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Layouts", "Layouts", "{3635F9B5-692E-45A6-80C1-DDEF88459605}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Styling", "Styling", "{144075F9-6F33-4349-8D25-93905F5D5404}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDev.Foundation.Layouts", "Foundation\Layouts\SitecoreDev.Foundation.Layouts\SitecoreDev.Foundation.Layouts.csproj", "{A2815A1F-2714-4341-A3CC-6F8547F44D1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDev.Foundation.Styling", "Foundation\Styling\SitecoreDev.Foundation.Styling\SitecoreDev.Foundation.Styling.csproj", "{F607C04A-BDAC-4AC7-99DC-C8A1C7639160}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +47,14 @@ Global
 		{667602FC-2957-486A-B1E8-70355CD58EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{667602FC-2957-486A-B1E8-70355CD58EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{667602FC-2957-486A-B1E8-70355CD58EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2815A1F-2714-4341-A3CC-6F8547F44D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2815A1F-2714-4341-A3CC-6F8547F44D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2815A1F-2714-4341-A3CC-6F8547F44D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2815A1F-2714-4341-A3CC-6F8547F44D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F607C04A-BDAC-4AC7-99DC-C8A1C7639160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F607C04A-BDAC-4AC7-99DC-C8A1C7639160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F607C04A-BDAC-4AC7-99DC-C8A1C7639160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F607C04A-BDAC-4AC7-99DC-C8A1C7639160}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +64,9 @@ Global
 		{0F057785-9254-40A1-B755-BE325A1381CF} = {B401B659-62CE-4466-A56E-D7CC1B09B43C}
 		{6090CB0D-68F9-460D-AF60-CE3B99EEE1D4} = {279F12F7-6F98-400E-802A-F4990DF5D09B}
 		{667602FC-2957-486A-B1E8-70355CD58EB8} = {6090CB0D-68F9-460D-AF60-CE3B99EEE1D4}
+		{3635F9B5-692E-45A6-80C1-DDEF88459605} = {279F12F7-6F98-400E-802A-F4990DF5D09B}
+		{144075F9-6F33-4349-8D25-93905F5D5404} = {279F12F7-6F98-400E-802A-F4990DF5D09B}
+		{A2815A1F-2714-4341-A3CC-6F8547F44D1B} = {3635F9B5-692E-45A6-80C1-DDEF88459605}
+		{F607C04A-BDAC-4AC7-99DC-C8A1C7639160} = {144075F9-6F33-4349-8D25-93905F5D5404}
 	EndGlobalSection
 EndGlobal
