@@ -5,9 +5,9 @@ using Sitecore.Data.Items;
 using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Presentation;
 
-namespace SitecoreDev.Web.Controllers
+namespace SitecoreDev.Feature.Media.Controllers
 {
-   public class ComponentsController : SitecoreController
+    public class MediaController : SitecoreController
    {
       public ViewResult HeroSlider()
       {

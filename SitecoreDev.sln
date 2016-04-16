@@ -3,11 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDev.Web", "SitecoreDev.Web\SitecoreDev.Web.csproj", "{13035136-F5A1-4BE8-94EB-C5E69EEF3CED}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{DF17E46F-688F-4F91-8B3E-1E4A88DBC5BD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{603E9BA2-3E3D-4A3E-891E-2C7CA861270F}"
+	ProjectSection(SolutionItems) = preProject
+		gulp-config.js = gulp-config.js
+		gulpfile.js = gulpfile.js
+		package.json = package.json
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{8EACCFD7-A0FD-4325-924F-385E6C29F624}"
 EndProject
@@ -29,16 +32,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDev.Foundation.Layo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDev.Foundation.Styling", "Foundation\Styling\SitecoreDev.Foundation.Styling\SitecoreDev.Foundation.Styling.csproj", "{F607C04A-BDAC-4AC7-99DC-C8A1C7639160}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Media", "Media", "{EC0CDD8A-0C90-4E36-B440-7D2341046D58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDev.Feature.Media", "Feature\Media\SitecoreDev.Feature.Media\SitecoreDev.Feature.Media.csproj", "{DC3056CF-59EC-4AB6-AF30-9C7937411040}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{13035136-F5A1-4BE8-94EB-C5E69EEF3CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13035136-F5A1-4BE8-94EB-C5E69EEF3CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13035136-F5A1-4BE8-94EB-C5E69EEF3CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13035136-F5A1-4BE8-94EB-C5E69EEF3CED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0F057785-9254-40A1-B755-BE325A1381CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F057785-9254-40A1-B755-BE325A1381CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F057785-9254-40A1-B755-BE325A1381CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +58,10 @@ Global
 		{F607C04A-BDAC-4AC7-99DC-C8A1C7639160}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F607C04A-BDAC-4AC7-99DC-C8A1C7639160}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F607C04A-BDAC-4AC7-99DC-C8A1C7639160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC3056CF-59EC-4AB6-AF30-9C7937411040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC3056CF-59EC-4AB6-AF30-9C7937411040}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC3056CF-59EC-4AB6-AF30-9C7937411040}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC3056CF-59EC-4AB6-AF30-9C7937411040}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,5 +75,7 @@ Global
 		{144075F9-6F33-4349-8D25-93905F5D5404} = {279F12F7-6F98-400E-802A-F4990DF5D09B}
 		{A2815A1F-2714-4341-A3CC-6F8547F44D1B} = {3635F9B5-692E-45A6-80C1-DDEF88459605}
 		{F607C04A-BDAC-4AC7-99DC-C8A1C7639160} = {144075F9-6F33-4349-8D25-93905F5D5404}
+		{EC0CDD8A-0C90-4E36-B440-7D2341046D58} = {8EACCFD7-A0FD-4325-924F-385E6C29F624}
+		{DC3056CF-59EC-4AB6-AF30-9C7937411040} = {EC0CDD8A-0C90-4E36-B440-7D2341046D58}
 	EndGlobalSection
 EndGlobal
