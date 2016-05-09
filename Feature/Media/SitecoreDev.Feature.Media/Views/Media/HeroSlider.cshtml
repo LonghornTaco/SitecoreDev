@@ -1,40 +1,22 @@
-﻿@model Sitecore.Data.Items.Item
-@using Sitecore.Data.Fields
-@using Sitecore.Data.Items
-@using Sitecore.Resources.Media
+﻿@model SitecoreDev.Feature.Media.ViewModels.HeroSliderViewModel
 
-@if (Model != null)
+@if (Model.HasImages)
 {
    <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-         <li data-target="#myCarousel" data-slide-to="1"></li>
-         <li data-target="#myCarousel" data-slide-to="2"></li>
-         <li data-target="#myCarousel" data-slide-to="3"></li>
+         @for (int i = 0; i < Model.ImageCount; i++)
+         {
+            <li data-target="#myCarousel" data-slide-to="@i" class="@(Model.HeroImages[i].IsActive ? "active" : "")"></li>
+         }
       </ol>
 
       <div class="carousel-inner" role="listbox">
-         @{
-            IEnumerable<Item> heroImages = null;
-            var heroImagesField = new MultilistField(Model.Fields["Hero Images"]);
-            if (heroImagesField != null)
-            {
-               heroImages = heroImagesField.GetItems();
-            }
-
-            if (heroImages != null)
-            {
-               int i = 1;
-               foreach (var image in heroImages)
-               {
-                  var mediaItem = (MediaItem)image;
-                  <div class="item @(i == 1 ? "active" : "")">
-                     <img src="@MediaManager.GetMediaUrl(mediaItem)" style="width:1920px;" alt="@mediaItem.Alt" />
-                  </div>
-                  i++;
-               }
-            }
+         @foreach (var image in Model.HeroImages)
+         {
+            <div class="item @(image.IsActive ? "active" : "")">
+               <img src="@image.MediaUrl" style="width:1920px;" alt="@image.AltText" />
+            </div>
          }
       </div>
    </div>
-            }
+}
