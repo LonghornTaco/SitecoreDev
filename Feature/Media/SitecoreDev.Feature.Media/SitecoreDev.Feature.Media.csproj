@@ -97,8 +97,8 @@
   <ItemGroup>
     <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IMediaRepository.cs" />
-    <Compile Include="Repository\SitecoreMediaRepository.cs" />
+    <Compile Include="Repositories\IMediaRepository.cs" />
+    <Compile Include="Repositories\SitecoreMediaRepository.cs" />
     <Compile Include="ViewModels\HeroSliderImageViewModel.cs" />
     <Compile Include="ViewModels\HeroSliderViewModel.cs" />
   </ItemGroup>

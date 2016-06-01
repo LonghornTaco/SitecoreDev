@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ColumnsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,7 +104,46 @@
     <Content Include="Views\Shared\DefaultMVCLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\SitecoreExtensions\SitecoreDev.Foundation.SitecoreExtensions\SitecoreDev.Foundation.SitecoreExtensions.csproj">
+      <Project>{667602fc-2957-486a-b1e8-70355cd58eb8}</Project>
+      <Name>SitecoreDev.Foundation.SitecoreExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\OneColumn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\TwoColumn39.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\TwoColumn48.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\TwoColumn66.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\TwoColumn84.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\TwoColumn93.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\ThreeColumn444.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\FourColumn3333.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\InnerOneColumn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\InnerTwoColumn48.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\InnerTwoColumn66.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Columns\InnerTwoColumn84.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

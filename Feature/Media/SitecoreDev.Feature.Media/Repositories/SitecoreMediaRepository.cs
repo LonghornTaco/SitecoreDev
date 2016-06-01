@@ -6,7 +6,7 @@ using Sitecore;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 
-namespace SitecoreDev.Feature.Media.Repository
+namespace SitecoreDev.Feature.Media.Repositories
 {
    public class SitecoreMediaRepository : IMediaRepository
    {

@@ -237,3 +237,9 @@ _Pvt_Extensions
 
 # Sitecore Libs folder
 libs/
+/Feature/Articles/SitecoreDev.Feature.Articles/Web.Release.config
+/Feature/Articles/SitecoreDev.Feature.Articles/Web.Debug.config
+/Feature/Articles/SitecoreDev.Feature.Articles/Web.config
+/package.json.old
+/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll

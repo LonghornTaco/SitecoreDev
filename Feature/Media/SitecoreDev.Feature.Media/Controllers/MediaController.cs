@@ -4,7 +4,7 @@ using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Resources.Media;
-using SitecoreDev.Feature.Media.Repository;
+using SitecoreDev.Feature.Media.Repositories;
 using SitecoreDev.Feature.Media.ViewModels;
 
 namespace SitecoreDev.Feature.Media.Controllers

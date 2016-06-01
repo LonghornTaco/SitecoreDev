@@ -13,6 +13,9 @@ gulp.task("Publish-Site", function () {
           .pipe(msbuild({
              targets: ["Build"],
              gulpConfiguration: gulpConfig.buildConfiguration,
+             verbosity: "diagnostic",
+             //errorOnFail: true,
+             //stdout: true,
              properties: {
                 publishUrl: gulpConfig.webRoot,
                 DeployDefaultTarget: "WebPublish",
