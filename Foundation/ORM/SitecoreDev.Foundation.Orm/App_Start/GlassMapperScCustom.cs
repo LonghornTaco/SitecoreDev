@@ -75,7 +75,7 @@ namespace SitecoreDev.Foundation.Orm.App_Start
             catch (BadImageFormatException imgEx)
             { } // If a BadImageFormatException exception is thrown, the file is not an assembly.
 
-         } 
+         }
       }
    }
 }

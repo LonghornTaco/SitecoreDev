@@ -8,5 +8,6 @@ namespace SitecoreDev.Foundation.Model
 {
    public interface ICmsEntity
    {
+      Guid Id { get; }
    }
 }

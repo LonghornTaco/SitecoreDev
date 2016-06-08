@@ -2,21 +2,50 @@
 
 @if (Model.HasImages)
 {
-   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-         @for (int i = 0; i < Model.ImageCount; i++)
-         {
-            <li data-target="#myCarousel" data-slide-to="@i" class="@(Model.HeroImages[i].IsActive ? "active" : "")"></li>
-         }
-      </ol>
-
-      <div class="carousel-inner" role="listbox">
+   if (Model.IsInExperienceEditorMode)
+   {
+      <div>
          @foreach (var image in Model.HeroImages)
          {
-            <div class="item @(image.IsActive ? "active" : "")">
-               <img src="@image.MediaUrl" style="width:1920px;" alt="@image.AltText" />
+            <div class="item" style="float:left;">
+               <img src="@image.MediaUrl" style="width:500px;margin:10px;" alt="@image.AltText" />
             </div>
          }
       </div>
-   </div>
+      <div style="clear:both;">
+         <!-- We'll add our custom buttons here! -->
+         <a href="#" class="btn btn-default" onclick="javascript:Sitecore.PageModes.PageEditor.postRequest('webedit:new(id=@(Model.ParentGuid))')">Add new content</a>
+      </div>
+   }
+   else
+   {
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+         <ol class="carousel-indicators">
+            @for (int i = 0; i < Model.ImageCount; i++)
+            {
+               <li data-target="#myCarousel" data-slide-to="@i" class="@(Model.HeroImages[i].IsActive ? "active" : "")"></li>
+            }
+         </ol>
+
+         <div class="carousel-inner" role="listbox">
+            @foreach (var image in Model.HeroImages)
+            {
+               <div class="item @(image.IsActive ? "active" : "")">
+                  <img src="@image.MediaUrl" style="width:1920px;" alt="@image.AltText" />
+               </div>
+            }
+         </div>
+      </div>
+
+      if (Model.IsSliderIntervalSet)
+      {
+         <script type="text/javascript">
+            $(document).ready(function () {
+               $("#myCarousel").carousel({
+                  interval: @(Model.SlideInterval),
+               });
+            });
+         </script>
+      }
+   }
 }

@@ -59,6 +59,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SimpleInjector, Version=3.1.4.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SimpleInjector.3.1.4\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\..\libs\Sitecore\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -88,6 +92,7 @@
   <ItemGroup>
     <Compile Include="App_Start\GlassMapperSc.cs" />
     <Compile Include="App_Start\GlassMapperScCustom.cs" />
+    <Compile Include="Pipelines\InitializeContainer\RegisterDependencies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +100,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Glass.Mapper.Sc.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\IoC\SitecoreDev.Foundation.Ioc\SitecoreDev.Foundation.Ioc.csproj">
+      <Project>{51a6e73f-1555-45d0-9ed1-a3e3d7a2ef5e}</Project>
+      <Name>SitecoreDev.Foundation.Ioc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Config\Include\Foundation\Foundation.Orm.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
