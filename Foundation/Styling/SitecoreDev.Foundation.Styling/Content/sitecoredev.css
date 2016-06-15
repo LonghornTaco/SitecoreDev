@@ -22,3 +22,17 @@
  
 body.edit-mode .mdl-container .mdl-locations-container .scEmptyImage {
   display: none; }
+
+.imageContainer {
+   float:left;
+   min-height:100px;
+   width:500px;
+   background-color:#808080;
+   margin:10px;
+	position: relative;
+}
+.editButton {
+   position:absolute;
+   bottom:15px;
+   left:15px;
+}

@@ -35,6 +35,7 @@ namespace SitecoreDev.Feature.Media.Controllers
             {
                viewModel.HeroImages.Add(new HeroSliderImageViewModel()
                {
+                  Id = slide.Id.ToString(),
                   MediaUrl = slide.Image?.Src,
                   AltText = slide.Image?.Alt
                });

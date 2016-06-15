@@ -7,14 +7,16 @@
       <div>
          @foreach (var image in Model.HeroImages)
          {
-            <div class="item" style="float:left;">
-               <img src="@image.MediaUrl" style="width:500px;margin:10px;" alt="@image.AltText" />
+            <div class="item imageContainer">
+               <img src="@image.MediaUrl" style="width:500px;" alt="@image.AltText" />
+               <!-- This button opens the Field Editor dialog to edit the field specified in our Edit Hero Image command -->
+               <a href="#" class="btn btn-default editButton" onclick="javascript:Sitecore.PageModes.PageEditor.postRequest('webedit:fieldeditor(id=@(image.Id),fields=Image,command={19F37115-C98E-4EEE-9C2B-5FA732D14F03})')">Edit Image</a>
             </div>
          }
       </div>
       <div style="clear:both;">
-         <!-- We'll add our custom buttons here! -->
-         <a href="#" class="btn btn-default" onclick="javascript:Sitecore.PageModes.PageEditor.postRequest('webedit:new(id=@(Model.ParentGuid))')">Add new content</a>
+         <!-- This button calls the webedit:new command to add a new Item to the content tree -->
+         <a href="#" class="btn btn-default" onclick="javascript:Sitecore.PageModes.PageEditor.postRequest('webedit:new(id=@(Model.ParentGuid))')">Add new image</a>
       </div>
    }
    else

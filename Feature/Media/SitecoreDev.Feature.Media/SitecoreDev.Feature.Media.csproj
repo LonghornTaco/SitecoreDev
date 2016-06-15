@@ -127,7 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <Content Include="Views\Media\HeroSlider.cshtml" />
   </ItemGroup>
   <ItemGroup>
