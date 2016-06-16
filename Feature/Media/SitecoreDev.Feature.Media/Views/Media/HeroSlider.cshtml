@@ -8,9 +8,7 @@
          @foreach (var image in Model.HeroImages)
          {
             <div class="item imageContainer">
-               <img src="@image.MediaUrl" style="width:500px;" alt="@image.AltText" />
-               <!-- This button opens the Field Editor dialog to edit the field specified in our Edit Hero Image command -->
-               <a href="#" class="btn btn-default editButton" onclick="javascript:Sitecore.PageModes.PageEditor.postRequest('webedit:fieldeditor(id=@(image.Id),fields=Image,command={19F37115-C98E-4EEE-9C2B-5FA732D14F03})')">Edit Image</a>
+               @image.Image
             </div>
          }
       </div>
@@ -33,7 +31,7 @@
             @foreach (var image in Model.HeroImages)
             {
                <div class="item @(image.IsActive ? "active" : "")">
-                  <img src="@image.MediaUrl" style="width:1920px;" alt="@image.AltText" />
+                  @image.Image
                </div>
             }
          </div>

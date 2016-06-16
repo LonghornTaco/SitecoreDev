@@ -30,9 +30,17 @@ body.edit-mode .mdl-container .mdl-locations-container .scEmptyImage {
    background-color:#808080;
    margin:10px;
 	position: relative;
-}
+   }
+   .imageContainer img {
+      height: 200px;
+      width:500px;
+   }
 .editButton {
    position:absolute;
    bottom:15px;
    left:15px;
+}
+.carousel-inner img {
+   height: 768px;
+   width:1920px;
 }
