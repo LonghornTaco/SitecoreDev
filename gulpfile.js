@@ -1,4 +1,4 @@
-/// <binding ProjectOpened='view-watcher' />
+///// <binding ProjectOpened='view-watcher, css-watcher, js-watcher' />
 var gulp = require("gulp");
 var msbuild = require("gulp-msbuild");
 var debug = require("gulp-debug");
@@ -8,6 +8,10 @@ var serviceController = require("windows-service-controller");
 var deleteFiles = require("del");
 var runSequence = require("run-sequence");
 var newer = require("gulp-newer");
+var cssmin = require("gulp-cssmin");
+var rename = require("gulp-rename");
+var concat = require("gulp-concat");
+var uglify = require("gulp-uglify");
 module.exports.config = gulpConfig;
 
 //gulp.task("Run-Build", ["stop-iis", "delete-assemblies", "publish-site", "start-iis"], function () {
@@ -122,6 +126,62 @@ gulp.task("view-watcher", function () {
    );
 });
 
+gulp.task("minify-css", function () {
+  minifyCss();
+});
+
+gulp.task("minify-js", function () {
+  minifyJs
+});
+
+gulp.task("css-watcher", function () {
+  var root = "./";
+  var roots = [root + "**/Content", "!" + root + "/**/obj/**/Content"];
+  var files = "/**/*.css";
+  var destination = gulpConfig.webRoot + "\\Content";
+  gulp.src(roots, { base: root }).pipe(
+    foreach(function (stream, rootFolder) {
+      gulp.watch(rootFolder.path + files, function (event) {
+        if (event.type === "changed") {
+          console.log("publish this file " + event.path);
+          minifyCss(destination);
+        }
+        console.log("published " + event.path);
+      });
+      return stream;
+    })
+  );
+});
+gulp.task("js-watcher", function () {
+  var root = "./";
+  var roots = [root + "**/Scripts", "!" + root + "/**/obj/**/Scripts"];
+  var files = "/**/*.js";
+  var destination = gulpConfig.webRoot + "\\Scripts";
+  gulp.src(roots, { base: root }).pipe(
+    foreach(function (stream, rootFolder) {
+      gulp.watch(rootFolder.path + files, function (event) {
+        if (event.type === "changed") {
+          console.log("publish this file " + event.path);
+          minifyJs(destination);
+        }
+        console.log("published " + event.path);
+      });
+      return stream;
+    })
+  );
+});
+var minifyCss = function (destination) {
+  gulp.src("./{Feature,Foundation,Project}/**/**/Content/*.css")
+    .pipe(concat('sitecoredev.min.css'))
+    .pipe(cssmin())
+    .pipe(gulp.dest(destination));
+};
+var minifyJs = function (destination) {
+  gulp.src("./{Feature,Foundation,Project}/**/**/Scripts/*.js")
+    .pipe(concat('sitecoredev.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(destination));
+};
 var publishProject = function (source) {
    console.log("Publishing " + source + " to " + gulpConfig.webRoot);
    return gulp.src(source + "/**/**/*.csproj")

@@ -126,7 +126,9 @@
     <Compile Include="ViewModels\HeroSliderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\feature.media.js" />
     <Content Include="Views\web.config" />
+    <Content Include="Content\feature.media.css" />
     <None Include="packages.config" />
     <Content Include="Views\Media\HeroSlider.cshtml" />
   </ItemGroup>
@@ -143,10 +145,15 @@
       <Project>{260ccc22-baee-4b4f-a137-ea9332f9e636}</Project>
       <Name>SitecoreDev.Foundation.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\SitecoreExtensions\SitecoreDev.Foundation.SitecoreExtensions\SitecoreDev.Foundation.SitecoreExtensions.csproj">
+      <Project>{667602fc-2957-486a-b1e8-70355cd58eb8}</Project>
+      <Name>SitecoreDev.Foundation.SitecoreExtensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\Feature.Media.config" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
