@@ -1,0 +1,9 @@
+﻿@model SitecoreDev.Feature.Search.ViewModels.SearchResultsViewModel
+
+@foreach (var result in Model.Results)
+{
+  <div>
+    @*<div>@result.Id</div>*@
+    <div>@result.Title</div>
+  </div>
+}

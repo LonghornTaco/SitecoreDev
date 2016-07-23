@@ -9,15 +9,15 @@ namespace SitecoreDev.Foundation.Repository.Search
 {
   public class SitecoreSearchRepository : ISearchRepository
   {
-    public IEnumerable<SearchResultItem> Search(Expression<Func<SearchResultItem, bool>> query)
+    public IEnumerable<T> Search<T>(Expression<Func<T, bool>> query) where T : SearchResultItem
     {
-      IEnumerable<SearchResultItem> results = null;
+      IEnumerable<T> results = null;
 
       var index = String.Format("sitecore_{0}_index", Sitecore.Context.Database.Name);
 
       using (var context = ContentSearchManager.GetIndex(index).CreateSearchContext())
       {
-        results = context.GetQueryable<SearchResultItem>().Where(query).ToList();
+        results = context.GetQueryable<T>().Where(query).ToList();
       }
 
       return results;

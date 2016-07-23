@@ -7,6 +7,6 @@ namespace SitecoreDev.Foundation.Repository.Search
 {
   public interface ISearchRepository
   {
-    IEnumerable<SearchResultItem> Search(Expression<Func<SearchResultItem, bool>> query);
+    IEnumerable<T> Search<T>(Expression<Func<T, bool>> query) where T : SearchResultItem;
   }
 }

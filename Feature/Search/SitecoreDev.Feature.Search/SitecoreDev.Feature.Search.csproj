@@ -121,14 +121,20 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\Feature.Search.config" />
     <Content Include="Views\Search\BlogSearch.cshtml" />
+    <Content Include="Views\Search\_SearchResults.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Models\BlogSearchResult.cs" />
     <Compile Include="Pipelines\InitializeContainer\RegisterDependencies.cs" />
+    <Compile Include="Pipelines\RegisterRoutes\RegisterRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ISearchService.cs" />
     <Compile Include="Services\SitecoreSearchService.cs" />
+    <Compile Include="ViewModels\BlogSearchViewModel.cs" />
+    <Compile Include="ViewModels\SearchResultsViewModel.cs" />
+    <Compile Include="ViewModels\SearchResultViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\web.config" />
@@ -140,9 +146,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Foundation\IoC\SitecoreDev.Foundation.Ioc\SitecoreDev.Foundation.Ioc.csproj">
       <Project>{51a6e73f-1555-45d0-9ed1-a3e3d7a2ef5e}</Project>

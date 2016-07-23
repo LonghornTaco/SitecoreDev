@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Diagnostics;
-using Sitecore.ContentSearch.SearchTypes;
+using SitecoreDev.Feature.Search.Models;
 using SitecoreDev.Foundation.Repository.Search;
 
 namespace SitecoreDev.Feature.Search.Services
@@ -15,11 +13,9 @@ namespace SitecoreDev.Feature.Search.Services
       _searchRepository = searchRepository;
     }
 
-    public IEnumerable<SearchResultItem> SearchBlogPosts(string searchTerm)
+    public IEnumerable<BlogSearchResult> SearchBlogPosts(string searchTerm, string searchStartPath)
     {
-      var results = _searchRepository.Search(q => q.Name.Contains(searchTerm));
-      Debug.WriteLine("Count = " + results.Count());
-      return results;
+      return _searchRepository.Search<BlogSearchResult>(q => q.Title.Contains(searchTerm) && q.Path.StartsWith(searchStartPath));
     }
   }
 }
