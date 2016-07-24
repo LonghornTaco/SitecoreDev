@@ -1,11 +1,27 @@
 ﻿@model SitecoreDev.Feature.Search.ViewModels.SearchResultsViewModel
 
+<style type="text/css">
+  .blog-post {
+    float:left;
+    width:700px;
+    border:1px solid #808080;
+    padding:7px;
+  }
+  .blog-title {
+    font-weight:bold;
+    font-size:16px;
+  }
+  .blog-categories {
+    color:#aaaaaa;
+    padding-top:7px;
+  }
+</style>
+
 @foreach (var result in Model.Results)
 {
-  <div style="width:300px;">
-    <div style="float:left;width:200px;">@result.Title</div>
-    <div style="float:right;width:100px;text-align:center">
-      <a href="@result.Url">View</a>
-    </div>
+  <div class="blog-post">
+    <a href="@result.Url" class="blog-title">@result.Title</a>
+    <div>@result.Body</div>
+    <div class="blog-categories">Categories: @result.CategoryList</div>
   </div>
 }

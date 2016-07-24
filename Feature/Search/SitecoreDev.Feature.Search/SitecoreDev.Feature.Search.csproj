@@ -123,11 +123,15 @@
     <Content Include="Views\Search\BlogSearch.cshtml" />
     <Content Include="Views\Search\_SearchResults.cshtml" />
     <Content Include="App_Config\Include\Feature\Feature.Search.Routes.config" />
+    <Content Include="App_Config\Include\Feature\Feature.Search.Index.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Models\BlogBodyComputedField.cs" />
+    <Compile Include="Models\BlogCategoriesComputedField.cs" />
     <Compile Include="Models\BlogSearchResult.cs" />
+    <Compile Include="Models\BlogTitleComputedField.cs" />
     <Compile Include="Pipelines\InitializeContainer\RegisterDependencies.cs" />
     <Compile Include="Pipelines\RegisterRoutes\RegisterRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

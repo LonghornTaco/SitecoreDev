@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Web.Mvc;
 using SitecoreDev.Feature.Search.Services;
 using SitecoreDev.Feature.Search.ViewModels;
 using SitecoreDev.Foundation.Repository.Context;
@@ -24,6 +27,14 @@ namespace SitecoreDev.Feature.Search.Controllers
     [HttpPost]
     public PartialViewResult SubmitSearch(BlogSearchViewModel viewModel)
     {
+      Func<IEnumerable<string>, string> stringify = (list) =>
+      {
+        StringBuilder sb = new StringBuilder();
+        foreach (var item in list)
+          sb.Append(String.Format("{0}; ", item));
+        return sb.ToString();
+      };
+
       var resultsViewModel = new SearchResultsViewModel();
 
       var results = _searchService.SearchBlogPosts(viewModel.SearchTerm);
@@ -34,7 +45,9 @@ namespace SitecoreDev.Feature.Search.Controllers
         {
           Id = result.ItemId.ToString(),
           Title = result.Title,
-          Url = result.Url
+          Url = result.Url,
+          Body = result.Body,
+          CategoryList = stringify(result.Categories)
         });
       }
 
