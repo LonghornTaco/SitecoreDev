@@ -122,6 +122,7 @@
     <Content Include="App_Config\Include\Feature\Feature.Search.config" />
     <Content Include="Views\Search\BlogSearch.cshtml" />
     <Content Include="Views\Search\_SearchResults.cshtml" />
+    <Content Include="App_Config\Include\Feature\Feature.Search.Routes.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

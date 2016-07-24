@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using SitecoreDev.Feature.Search.Services;
 using SitecoreDev.Feature.Search.ViewModels;
 using SitecoreDev.Foundation.Repository.Context;
@@ -30,14 +26,15 @@ namespace SitecoreDev.Feature.Search.Controllers
     {
       var resultsViewModel = new SearchResultsViewModel();
 
-      var results = _searchService.SearchBlogPosts(viewModel.SearchTerm, _contextWrapper.CurrentItemPath);
+      var results = _searchService.SearchBlogPosts(viewModel.SearchTerm);
 
       foreach (var result in results)
       {
         resultsViewModel.Results.Add(new SearchResultViewModel()
         {
           Id = result.ItemId.ToString(),
-          Title = result.Title
+          Title = result.Title,
+          Url = result.Url
         });
       }
 

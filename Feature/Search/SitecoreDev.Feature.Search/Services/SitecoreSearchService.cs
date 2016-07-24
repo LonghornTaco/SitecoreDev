@@ -13,9 +13,9 @@ namespace SitecoreDev.Feature.Search.Services
       _searchRepository = searchRepository;
     }
 
-    public IEnumerable<BlogSearchResult> SearchBlogPosts(string searchTerm, string searchStartPath)
+    public IEnumerable<BlogSearchResult> SearchBlogPosts(string searchTerm)
     {
-      return _searchRepository.Search<BlogSearchResult>(q => q.Title.Contains(searchTerm) && q.Path.StartsWith(searchStartPath));
+      return _searchRepository.Search<BlogSearchResult>(q => q.Title.Contains(searchTerm) && q.Path.StartsWith("/sitecore/content/Home"));
     }
   }
 }

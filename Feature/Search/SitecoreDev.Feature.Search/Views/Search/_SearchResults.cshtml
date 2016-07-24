@@ -2,8 +2,10 @@
 
 @foreach (var result in Model.Results)
 {
-  <div>
-    @*<div>@result.Id</div>*@
-    <div>@result.Title</div>
+  <div style="width:300px;">
+    <div style="float:left;width:200px;">@result.Title</div>
+    <div style="float:right;width:100px;text-align:center">
+      <a href="@result.Url">View</a>
+    </div>
   </div>
 }

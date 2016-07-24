@@ -6,6 +6,6 @@ namespace SitecoreDev.Feature.Search.Services
 {
    public interface ISearchService
    {
-      IEnumerable<BlogSearchResult> SearchBlogPosts(string searchTerm, string searchStartPath);
+      IEnumerable<BlogSearchResult> SearchBlogPosts(string searchTerm);
    }
 }

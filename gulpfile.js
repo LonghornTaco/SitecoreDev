@@ -39,21 +39,28 @@ gulp.task("start-iis", function () {
 });
 
 gulp.task("delete-assemblies", function () {
-   deleteFiles([
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Feature.Articles.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Feature.Media.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Feature.Search.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Foundation.Indexing.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Foundation.Ioc.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Foundation.Layouts.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Foundation.Model.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Foundation.Orm.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Foundation.Repository.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Foundation.SitecoreExtensions.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Foundation.Styling.*',
-      gulpConfig.webRoot + '\\bin\\SitecoreDev.Website.*'
-      ],
-      { force: true });
+  gulp.start("delete-project-assemblies");
+  gulp.start("delete-foundation-assemblies");
+  gulp.start("delete-feature-assemblies");
+});
+
+gulp.task("delete-feature-assemblies", function () {
+  deleteFiles([
+     gulpConfig.webRoot + '\\bin\\SitecoreDev.Feature.*',
+  ],
+     { force: true });
+});
+gulp.task("delete-foundation-assemblies", function () {
+  deleteFiles([
+     gulpConfig.webRoot + '\\bin\\SitecoreDev.Foundation.*',
+  ],
+     { force: true });
+});
+gulp.task("delete-project-assemblies", function () {
+  deleteFiles([
+     gulpConfig.webRoot + '\\bin\\SitecoreDev.Website.*',
+  ],
+     { force: true });
 });
 
 gulp.task("publish-foundation", function() {
@@ -99,6 +106,9 @@ gulp.task("view-watcher", function () {
         return stream;
      })
    );
+});
+gulp.task("publish-pdbs", function () {
+  publishPDBs();
 });
 //gulp.task("publish-site", function () {
 //   return gulp.src("./{Feature,Foundation,Project}/**/**/*.csproj")
@@ -186,10 +196,10 @@ var publishProject = function (source) {
           .pipe(debug({ title: "Publishing " }))
           .pipe(msbuild({
              targets: ["Build"],
-             gulpConfiguration: gulpConfig.buildConfiguration,
+             gulpConfiguration: "Debug",
              verbosity: "minimal",
-             errorOnFail: true,
-             stdout: true,
+             //errorOnFail: true,
+             //stdout: true,
              maxcpucount: 0,
              toolsVersion: 14.0,
              properties: {
@@ -203,5 +213,18 @@ var publishProject = function (source) {
           }));
      }));
 };
-
-//if build is failing, it's probably a permissions issue on the SitecoreDev.*.dlls.  Stop IIS, delete them, restart IIS
+var publishPDBs = function () {
+  var roots = ["./{Feature,Foundation,Project}/**/**/bin"];
+  var files = "/SitecoreDev.*.pdb";
+  var destination = gulpConfig.webRoot + "/bin";
+  return gulp.src(roots, { base: root }).pipe(
+    foreach(function (stream, file) {
+      console.log("Publishing from " + file.path);
+      gulp.src(file.path + files, { base: file.path })
+        .pipe(newer(destination))
+        .pipe(debug({ title: "Copying " }))
+        .pipe(gulp.dest(destination));
+      return stream;
+    })
+  );
+}
