@@ -22,5 +22,19 @@ namespace SitecoreDev.Foundation.Repository.Search
 
       return results;
     }
+
+    public IEnumerable<SearchIndexTerm> GetTermsByFieldName(string fieldName, string searchTerm)
+    {
+      IEnumerable<SearchIndexTerm> results = null;
+
+      var index = String.Format("sitecore_{0}_index", Sitecore.Context.Database.Name);
+
+      using (var context = ContentSearchManager.GetIndex(index).CreateSearchContext())
+      {
+        results = context.GetTermsByFieldName(fieldName, searchTerm).ToList();
+      }
+
+      return results;
+    }
   }
 }

@@ -4,8 +4,9 @@ using SitecoreDev.Feature.Search.Models;
 
 namespace SitecoreDev.Feature.Search.Services
 {
-   public interface ISearchService
-   {
-      IEnumerable<BlogSearchResult> SearchBlogPosts(string searchTerm);
-   }
+  public interface ISearchService
+  {
+    IEnumerable<BlogSearchResult> SearchBlogPosts(string searchTerm);
+    IEnumerable<string> GetSearchSuggestions(string searchTerm);
+  }
 }

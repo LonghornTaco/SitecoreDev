@@ -17,5 +17,17 @@ namespace SitecoreDev.Feature.Search.Services
     {
       return _searchRepository.Search<BlogSearchResult>(q => q.Title.Contains(searchTerm) && q.Path.StartsWith("/sitecore/content/Home"));
     }
+
+    public IEnumerable<string> GetSearchSuggestions(string searchTerm)
+    {
+      var suggestions = new List<string>();
+      //return _searchRepository.Search<BlogSearchResult>(q => q.Title.Contains(searchTerm) && q.Path.StartsWith("/sitecore/content/Home"));
+      var results = _searchRepository.GetTermsByFieldName("blogtitle", searchTerm);
+      foreach (var result in results)
+      {
+        suggestions.Add(result.Term);
+      }
+      return suggestions;
+    }
   }
 }

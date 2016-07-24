@@ -9,6 +9,7 @@ namespace SitecoreDev.Feature.Search.Pipelines.RegisterRoutes
     public void Process(PipelineArgs args)
     {
       RouteTable.Routes.MapRoute("SubmitSearch", "Search/SubmitSearch", new { controller = "Search", action = "SubmitSearch" });
+      RouteTable.Routes.MapRoute("GetSuggestions", "Search/GetSuggestions", new { controller = "Search", action = "GetSuggestions" });
     }
   }
 }

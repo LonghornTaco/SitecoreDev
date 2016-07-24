@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using SitecoreDev.Feature.Search.Services;
@@ -52,6 +54,19 @@ namespace SitecoreDev.Feature.Search.Controllers
       }
 
       return PartialView("~/Views/Search/_SearchResults.cshtml", resultsViewModel);
+    }
+
+    [HttpPost]
+    public IEnumerable<string> GetSuggestions(BlogSearchViewModel viewModel)
+    {
+      var suggestions = new List<string>();
+
+      if (!String.IsNullOrEmpty(viewModel?.SearchTerm))
+      {
+        return _searchService.GetSearchSuggestions(viewModel.SearchTerm);
+      }
+
+      return Enumerable.Empty<string>();
     }
   }
 }
